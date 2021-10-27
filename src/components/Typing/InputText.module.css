@@ -1,0 +1,18 @@
+.input-text {
+    display: flex;
+    justify-content:stretch;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+    margin-left: 20%;
+    margin-right: 20%;
+    border: solid;
+    border-width:thin;
+    height: 5rem;
+}
+
+.input-text input {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}

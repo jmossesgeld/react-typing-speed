@@ -1,25 +1,18 @@
 import "./App.css";
 import Heading from "./components/Layout/Header";
 import Words from "./components/Typing/Words";
-import React, { useEffect, useState } from "react";
+import InputText from "./components/Typing/InputText";
+import WordsContext from "./store/store";
+import { useContext } from "react";
 
 function App() {
-  const wordsApi = "https://random-word-api.herokuapp.com/word?number=20";
-  const [generatedText, setGeneratedText] = useState(["Kingina", "Kupal", "Tarantado", "Hinayupak", "Gagu", "Hayup", "tangina", "this", "shit", "punyeta", "ka"]);
-
-  // useEffect(() => {
-  //   fetch(wordsApi)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       return setGeneratedText(data);
-  //     });
-  // }, []);
+  const wordsCtx = useContext(WordsContext);
 
   return (
     <div className="App">
       <Heading />
-      <Words words={generatedText} />
+      <Words words={wordsCtx.words} />
+      <InputText />
     </div>
   );
 }
