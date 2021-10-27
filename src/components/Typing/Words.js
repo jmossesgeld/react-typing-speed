@@ -1,13 +1,10 @@
 import styles from "./Words.module.css";
 import Word from "./Word";
-function Words() {
-  const result = "Kingina shit this fucker gagu"
-  const words = result.split(" ");
-
+function Words(props) {
   return (
-    <div className={styles}>
-      {words.map((word) => (
-        <Word text={word}></Word>
+    <div className={styles.words}>
+      {props.words.map((word, index) => (
+        <Word text={word} key={index}></Word>
       ))}
     </div>
   );
