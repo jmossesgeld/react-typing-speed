@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const WordsContext = createContext({
   words: [],
@@ -7,38 +7,16 @@ const WordsContext = createContext({
 
 export function WordsContextProvider(props) {
   const wordsApi = "https://random-word-api.herokuapp.com/word?number=20";
-  const [generatedText, setGeneratedText] = useState([
-    "Kingina",
-    "Kupal",
-    "Tarantado",
-    "Hinayupak",
-    "Gagu",
-    "Hayup",
-    "tangina",
-    "this",
-    "shit",
-    "punyeta",
-    "ka",
-    "Kupal",
-    "Tarantado",
-    "Hinayupak",
-    "Gagu",
-    "Hayup",
-    "tangina",
-    "this",
-    "shit",
-    "punyeta",
-    "ka",
-  ]);
+  const [generatedText, setGeneratedText] = useState(["Some", "random", "words", "for", "testing"]);
 
-  // useEffect(() => {
-  //   fetch(wordsApi)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       return setGeneratedText(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(wordsApi)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        return setGeneratedText(data);
+      });
+  }, []);
 
   const checkInputText = (letter) => {};
 
