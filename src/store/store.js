@@ -2,7 +2,6 @@ import { createContext, useState, useEffect } from "react";
 
 const WordsContext = createContext({
   words: [],
-  checkInputText: (letter) => {},
 });
 
 export function WordsContextProvider(props) {
@@ -18,10 +17,13 @@ export function WordsContextProvider(props) {
       });
   }, []);
 
-  const checkInputText = (letter) => {};
 
   return (
-    <WordsContext.Provider value={{ words: generatedText, checkInputText: checkInputText }}>
+    <WordsContext.Provider
+      value={{
+        words: generatedText,
+      }}
+    >
       {props.children}
     </WordsContext.Provider>
   );
