@@ -15,13 +15,49 @@ function InputText(props) {
     checkInput(text);
   };
 
+  const determineIndex = (primaryIndex, array) => {
+    const sizes = []
+    for (let index = 0; index < array.length; index++) {
+      const element = array[index];
+      sizes.push(element.length);     
+    }
+    let firstIndex = 0
+    let secondIndex = 0
+    let remainingIndex = primaryIndex
+    for (let index = 0; index < sizes.length; index++) {
+      const size = sizes[index];
+      if (remainingIndex > size) {
+        firstIndex++
+        remainingIndex-=size        
+      } else {
+        secondIndex = remainingIndex        
+      }
+    }
+    return [firstIndex, secondIndex]
+  }
+
   const checkInput = (input) => {
     for (let index = 0; index < input.length; index++) {
       const inputChar = input[index];
       const words = ctx.words.join("\n");
-      const wordChar = words[index];
+      let wordChar = words[index];
       if (inputChar !== wordChar) {
-        console.log("Wrong input " + input + " " + wordChar);
+        const [firstIndex, secondIndex] = determineIndex(index, ctx.words)
+        let newWord = ""
+        for (let j = 0; j < ctx.words[firstIndex].length; j++) {
+          const element = ctx.words[firstIndex][j];
+          if (j === secondIndex) {
+            newWord += wordChar.replace(wordChar, `<span style="color:red">${wordChar}</span>`)
+          } else {
+            newWord += element            
+          }
+          
+        }
+        ctx.setGeneratedText((prev)=>{
+          const newState =[...prev]
+          newState[firstIndex] = newWord
+          return newState
+        })
       }
     }
   };

@@ -2,6 +2,7 @@ import { createContext, useState, useEffect } from "react";
 
 const WordsContext = createContext({
   words: [],
+  setGeneratedText: () => {},
 });
 
 export function WordsContextProvider(props) {
@@ -17,11 +18,11 @@ export function WordsContextProvider(props) {
       });
   }, []);
 
-
   return (
     <WordsContext.Provider
       value={{
         words: generatedText,
+        setGeneratedText: setGeneratedText,
       }}
     >
       {props.children}
