@@ -16,8 +16,8 @@ const reducer = (state = initialState, action) => {
   if (action.type === "validate") {
     const validations = [];
     for (let index = 0; index < state.input.length; index++) {
-      const letter = state.words[index];
-      const input = state.input[index];
+      const letter = state.words[index] === " " ? "" : state.words[index];
+      const input = state.input[index] === "\n" ? "" : state.input[index];
       validations.push(input === letter ? "correct" : "wrong");
     }
 
