@@ -1,0 +1,11 @@
+.style {
+    margin: 3%;
+    margin-top: 2rem;
+    overflow: hidden;
+    resize: none;
+    font-size: 2rem;
+    border-style: solid;
+    width: 30%;
+    height: 2rem;
+    text-align: center;
+}
