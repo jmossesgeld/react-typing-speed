@@ -5,7 +5,6 @@ import InputText from "./components/Typing/InputText";
 
 
 function App() {
-
   return (
     <div className="App">
       <Heading />
