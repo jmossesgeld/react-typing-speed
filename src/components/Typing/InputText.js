@@ -4,14 +4,14 @@ import { useSelector, useDispatch } from "react-redux";
 const InputText = () => {
   const inputText = useSelector((state) => state.input);
   const dispatch = useDispatch();
+
+  const inputChangeHandler = (e) => {
+    dispatch({ type: "setInput", value: e.target.value });
+    dispatch({type: "validate"})
+  };
+
   return (
-    <textarea
-      className={classes.style}
-      value={inputText}
-      onChange={(e) => {
-        dispatch({ type: "setInput", value: e.target.value });
-      }}
-    ></textarea>
+    <textarea className={classes.style} value={inputText} onChange={inputChangeHandler}></textarea>
   );
 };
 

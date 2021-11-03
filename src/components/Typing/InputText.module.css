@@ -5,7 +5,9 @@
     resize: none;
     font-size: 2rem;
     border-style: solid;
-    width: 30%;
+    width: 50%;
     height: 2rem;
     text-align: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
