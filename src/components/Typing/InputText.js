@@ -7,7 +7,10 @@ const InputText = () => {
 
   const inputChangeHandler = (e) => {
     dispatch({ type: "setInput", value: e.target.value });
-    dispatch({type: "validate"})
+    if (e.target.value.slice(-1) === " ") {
+      dispatch({type: "validate"})
+      
+    }
   };
 
   return (

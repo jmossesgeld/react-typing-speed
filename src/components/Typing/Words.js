@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classes from "./Words.module.css";
-import Letter from "./Letter";
+import Word from "./Word";
 
 const Words = () => {
   const dispatch = useDispatch();
-  const words = useSelector((state) => state.words).split("");
+  const words = useSelector((state) => state.words);
   const validations = useSelector((state) => state.validations);
 
   useEffect(() => {
@@ -13,16 +13,15 @@ const Words = () => {
     fetch(wordsApi)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        dispatch({ type: "setWords", value: data.join(" ") });
+        dispatch({ type: "setWords", value: data });
       });
   }, [dispatch]);
 
   return (
     <div className={classes.style}>
-      {words.map((item, index) => {
-        return <Letter validation={validations[index]} char={item} key={index}/>;
-      })}
+      {words.map((item, index) => (
+        <Word validation={validations[index]} char={item} key={index} />
+      ))}
     </div>
   );
 };
