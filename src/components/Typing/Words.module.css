@@ -1,13 +1,16 @@
 .style {
-    width: 50%;
+    width: 70vw;
     max-width: 90%;
     margin: auto;
     margin-top: 2rem;
+    max-height: 50vh ;
     font-size: 1.5rem;
     border-style: solid;
     padding: 1rem;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap:wrap;
+    justify-content:center;
+    align-content:flex-start;
+    overflow-y: auto;
 
 }

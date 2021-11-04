@@ -2,7 +2,7 @@
   margin: 3%;
   margin-top: 0;
   margin-bottom: 0;
-  overflow: hidden;
+  overflow: auto;
   resize: none;
   font-size: 2rem;
   border-style: solid;
@@ -12,3 +12,4 @@
   padding-left: 1rem;
   padding-right: 1rem;
 }
+
