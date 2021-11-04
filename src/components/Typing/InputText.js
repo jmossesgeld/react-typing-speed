@@ -6,15 +6,26 @@ const InputText = () => {
   const dispatch = useDispatch();
 
   const inputChangeHandler = (e) => {
-    dispatch({type: "startTimer"})
+    dispatch({ type: "startTimer" });
     dispatch({ type: "setInput", value: e.target.value });
     if (e.target.value.slice(-1) === " ") {
-      dispatch({type: "validate"})      
+      dispatch({ type: "validate" });
     }
   };
 
   return (
-    <textarea className={classes.style} value={inputText} onChange={inputChangeHandler}></textarea>
+    <div>
+      <em style={{ marginTop: "2rem", display: "block" }}> Type anything to get started:</em>
+      <textarea
+        autoFocus
+        className={classes.style}
+        value={inputText}
+        onChange={inputChangeHandler}
+      ></textarea>
+      <em style={{ marginBottom:"2rem", display: "block", fontSize: "0.7rem" }}>
+        Press Up and Down to cycle through the words entered
+      </em>
+    </div>
   );
 };
 

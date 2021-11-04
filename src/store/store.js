@@ -23,7 +23,6 @@ const reducer = (state = initialState, action) => {
   if (action.type === "validate") {
     const validations = [];
     const inputs = state.input.split("\n");
-    console.log(state.startTimeStamp);
 
     for (let index = 0; index < inputs.length - 1; index++) {
       const letter = state.words[index];
@@ -35,7 +34,7 @@ const reducer = (state = initialState, action) => {
   }
 
   if (action.type === "startTimer" && !state.isTimerStart) {
-    return { ...state, startTimeStamp: Date.now(), isTimerStart: true };
+    return { ...state, startTimeStamp: Date.now(), currentTimeStamp: Date.now(), isTimerStart: true };
   }
 
   return state;

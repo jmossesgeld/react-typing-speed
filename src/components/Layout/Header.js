@@ -1,7 +1,8 @@
 import styles from './Header.module.css'
+import Scoreboard from './Scoreboard';
 
 function Heading() {
-  return <h1 className={styles.header}>Typing Speed Test</h1>;
+  return <div className={styles.header}><h1 >Typing Speed Test</h1><Scoreboard/></div>;
 };
 
 export default Heading;

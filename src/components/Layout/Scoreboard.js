@@ -4,6 +4,8 @@ import classes from "./Scoreboard.module.css";
 const Scoreboard = () => {
   const validations = useSelector((state) => state.validations);
   const errors = validations.filter((item) => item === "wrong").length;
+  const accuracy = (1 - ((errors) / (validations.length || 0)))*100
+  console.log(errors)
 
   const timelapse =
     useSelector((state) => state.currentTimeStamp) - useSelector((state) => state.startTimeStamp);
@@ -19,7 +21,7 @@ const Scoreboard = () => {
         Words per minute: <b>{wpm.toFixed(0)}</b>
       </span>
       <span>
-        Accuracy: <b>100%</b>
+        Accuracy: <b>{accuracy.toFixed(0)}</b>%
       </span>
       <span>
         Time Remaining: <b>{60 - (timelapse/1000).toFixed()}</b>s
