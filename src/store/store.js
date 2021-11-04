@@ -1,6 +1,13 @@
 import { createStore } from "redux";
 
-const initialState = { words: ["Some Words"], input: "", validations: [""] };
+const initialState = {
+  words: ["Some Words"],
+  input: "",
+  validations: [""],
+  isTimerStart: false,
+  startTimeStamp: 0,
+  currentTimeStamp: 0,
+};
 
 const reducer = (state = initialState, action) => {
   if (action.type === "setWords") {
@@ -15,15 +22,20 @@ const reducer = (state = initialState, action) => {
 
   if (action.type === "validate") {
     const validations = [];
-    const inputs = state.input.split("\n")
-    console.log(inputs)
+    const inputs = state.input.split("\n");
+    console.log(state.startTimeStamp);
+
     for (let index = 0; index < inputs.length - 1; index++) {
-      const letter = state.words[index]
-      const input = inputs[index]
+      const letter = state.words[index];
+      const input = inputs[index];
       validations.push(input === letter ? "correct" : "wrong");
     }
 
-    return { ...state, validations: validations };
+    return { ...state, validations: validations, currentTimeStamp:Date.now() };
+  }
+
+  if (action.type === "startTimer" && !state.isTimerStart) {
+    return { ...state, startTimeStamp: Date.now(), isTimerStart: true };
   }
 
   return state;

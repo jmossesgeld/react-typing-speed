@@ -12,6 +12,7 @@ function App() {
       <Scoreboard />
       <Words/>
       <InputText />
+      <footer>Press Up and Down to cycle through the words entered.</footer>
     </div>
   );
 }

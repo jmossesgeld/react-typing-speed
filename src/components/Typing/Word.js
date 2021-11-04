@@ -1,5 +1,11 @@
-const Word = (props)=>{
-    return <span className={props.validation} style={{margin:"0.3rem"}}>{props.char}</span>
-}
+import styled from "styled-components";
 
-export default Word
+const StyledSpan = styled.span`
+  margin: 0.3rem;
+`;
+
+const Word = (props) => {
+  return <StyledSpan className={props.validation}>{props.char}</StyledSpan>;
+};
+
+export default Word;

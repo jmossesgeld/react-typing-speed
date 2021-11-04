@@ -6,10 +6,10 @@ const InputText = () => {
   const dispatch = useDispatch();
 
   const inputChangeHandler = (e) => {
+    dispatch({type: "startTimer"})
     dispatch({ type: "setInput", value: e.target.value });
     if (e.target.value.slice(-1) === " ") {
-      dispatch({type: "validate"})
-      
+      dispatch({type: "validate"})      
     }
   };
 
