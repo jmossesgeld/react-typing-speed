@@ -7,7 +7,8 @@ const initialState = {
   isTimerStart: false,
   startTimeStamp: 0,
   currentTimeStamp: 0,
-  latestScore: {wpm: 0, accuracy: 0}
+  latestScore: { wpm: 0, accuracy: 0 },
+  showFinalResults: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -18,7 +19,7 @@ const reducer = (state = initialState, action) => {
 
   if (action.type === "setInput") {
     const text = action.value.replace(" ", "\n");
-    return { ...state, input: text };
+    return { ...state, input: text, currentTimeStamp: Date.now() };
   }
 
   if (action.type === "validate") {
@@ -31,15 +32,27 @@ const reducer = (state = initialState, action) => {
       validations.push(input === letter ? "correct" : "wrong");
     }
 
-    return { ...state, validations: validations, currentTimeStamp:Date.now() };
+    return { ...state, validations: validations };
   }
 
   if (action.type === "startTimer" && !state.isTimerStart) {
-    return { ...state, startTimeStamp: Date.now(), currentTimeStamp: Date.now(), isTimerStart: true };
+    return {
+      ...state,
+      startTimeStamp: Date.now(),
+      currentTimeStamp: Date.now(),
+      isTimerStart: true,
+    };
   }
 
-  if (action.type === "updateScore" && state.isTimerStart) {
-    return { ...state, latestScore: action.value, startTimeStamp: 0, currentTimeStamp: 0, isTimerStart: false}
+  if (action.type === "postScore" && state.isTimerStart) {
+    return {
+      ...state,
+      latestScore: action.value,
+      startTimeStamp: 0,
+      currentTimeStamp: 0,
+      isTimerStart: false,
+      showFinalResults: true,
+    };
   }
 
   return state;
