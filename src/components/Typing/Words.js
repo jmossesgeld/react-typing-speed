@@ -56,13 +56,13 @@ const Words = () => {
     ];
     dispatch({
       type: "setWords",
-      value: shuffle(randomSentences).join(" ").split(" "),
+      value: shuffle(randomSentences).join(" ").split(" ").slice(0, 200),
     });
   }, [dispatch]);
 
   useEffect(() => {
     const currentHeight =
-      wordsRef.current.scrollHeight * (validations.length / words.length - 0.25);
+      wordsRef.current.scrollHeight * (validations.length / words.length - 0.10);
     wordsRef.current.scrollTop = currentHeight;
   }, [validations, words]);
 
