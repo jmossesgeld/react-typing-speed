@@ -1,3 +1,18 @@
 .finalscore h2{
     color:darkslateblue
 }
+
+.finalscore .score {
+    font-size: 5rem;
+}
+
+.finalscore button {
+    display: block;
+    margin: auto;
+    background-color: white;
+    margin-top: 5rem;
+    color: cornflowerblue;
+    padding: 1rem;
+    border-width: 1px;
+    border-color: cornflowerblue;
+}

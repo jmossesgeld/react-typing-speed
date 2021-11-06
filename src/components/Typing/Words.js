@@ -8,6 +8,7 @@ const Words = () => {
   const words = useSelector((state) => state.words);
   const validations = useSelector((state) => state.validations);
   const wordsRef = useRef();
+  const showFinalResults = useSelector(state=>state.showFinalResults)
 
   function shuffle(array) {
     let currentIndex = array.length,
@@ -58,7 +59,7 @@ const Words = () => {
       type: "setWords",
       value: shuffle(randomSentences).join(" ").split(" ").slice(0, 200),
     });
-  }, [dispatch]);
+  }, [dispatch, showFinalResults]);
 
   useEffect(() => {
     const currentHeight =

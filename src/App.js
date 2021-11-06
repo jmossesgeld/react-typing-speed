@@ -3,6 +3,7 @@ import Heading from "./components/Layout/Header";
 import Words from "./components/Typing/Words";
 import InputText from "./components/Typing/InputText";
 import FinalScore from "./components/Layout/FinalScore";
+import Scoreboard from "./components/Layout/Scoreboard";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -10,12 +11,13 @@ function App() {
 
   return (
     <div className="App">
+      <Heading />
+      <hr />
       {showFinalResults ? (
         <FinalScore></FinalScore>
       ) : (
         <>
-          <Heading />
-          <hr />
+          <Scoreboard />
           <Words />
           <InputText />
         </>

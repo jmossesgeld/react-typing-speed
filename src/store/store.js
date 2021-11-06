@@ -55,6 +55,11 @@ const reducer = (state = initialState, action) => {
     };
   }
 
+  if (action.type === "restart") {
+    console.log("restarting");
+    return initialState;
+  }
+
   return state;
 };
 

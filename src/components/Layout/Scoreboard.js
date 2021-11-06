@@ -4,7 +4,7 @@ import classes from "./Scoreboard.module.css";
 
 const Scoreboard = () => {
   const dispatch = useDispatch();
-  const duration = 60;
+  const duration = 10;
   const validations = useSelector((state) => state.validations);
   const errors = validations.filter((item) => item === "wrong").length;
   const accuracy = (1 - errors / (validations.length || 0)) * 100;
@@ -12,7 +12,7 @@ const Scoreboard = () => {
   const timelapse =
     useSelector((state) => state.currentTimeStamp) - useSelector((state) => state.startTimeStamp);
 
-  const wpm = timelapse > 0 ? (validations.length * (duration * 1000)) / timelapse : 0;
+  const wpm = timelapse > 0 ? (validations.length * 60000) / timelapse : 0;
   const timeRemaining = duration - (timelapse / 1000).toFixed();
 
   useEffect(() => {
