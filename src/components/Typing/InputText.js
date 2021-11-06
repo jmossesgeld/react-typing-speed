@@ -5,14 +5,17 @@ import { useSelector, useDispatch } from "react-redux";
 
 const InputText = () => {
   const inputText = useSelector((state) => state.input);
+  const latestScore = useSelector((state) => state.latestScore);
   const dispatch = useDispatch();
   const textArea = useRef();
 
   const inputChangeHandler = (e) => {
-    dispatch({ type: "startTimer" });
+    if (latestScore.wpm === 0) {
+      dispatch({ type: "startTimer" });
+    }
     dispatch({ type: "setInput", value: e.target.value });
     if (e.target.value.slice(-1) === " ") {
-      textArea.current.scrollTop = textArea.current.scrollHeight;
+      textArea.current?.scrollIntoView({ behavior: "smooth" });
       dispatch({ type: "validate" });
     }
   };

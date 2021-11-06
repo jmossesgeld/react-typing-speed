@@ -7,6 +7,7 @@ const initialState = {
   isTimerStart: false,
   startTimeStamp: 0,
   currentTimeStamp: 0,
+  latestScore: {wpm: 0, accuracy: 0}
 };
 
 const reducer = (state = initialState, action) => {
@@ -35,6 +36,10 @@ const reducer = (state = initialState, action) => {
 
   if (action.type === "startTimer" && !state.isTimerStart) {
     return { ...state, startTimeStamp: Date.now(), currentTimeStamp: Date.now(), isTimerStart: true };
+  }
+
+  if (action.type === "updateScore" && state.isTimerStart) {
+    return { ...state, latestScore: action.value, startTimeStamp: 0, currentTimeStamp: 0, isTimerStart: false}
   }
 
   return state;

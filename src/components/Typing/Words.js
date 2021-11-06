@@ -8,6 +8,23 @@ const Words = () => {
   const words = useSelector((state) => state.words);
   const validations = useSelector((state) => state.validations);
 
+  function shuffle(array) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+  }
+
   useEffect(() => {
     // const wordsApi = "https://random-word-api.herokuapp.com/word?number=20";
     // fetch(wordsApi)
@@ -15,10 +32,17 @@ const Words = () => {
     //   .then((data) => {
     //     dispatch({ type: "setWords", value: data });
     //   });
+    const randomSentences = [
+      "In natural theology, I assert, still, that our judgements are just as necessary as our knowledge, by means of analytic unity.",
+      "It remains a mystery why the things in themselves are a representation of the transcendental aesthetic, since some of our judgements are synthetic.",
+      "The architectonic of natural reason can not take account of the Categories.",
+      "Let us apply this to the architectonic of natural reason.",
+      "Hume tells us that, in accordance with the principles of natural causes, our sense perceptions constitute the whole content of the paralogisms.",
+      "As is evident upon close examination, space, when thus treated as our sense perceptions, can be treated like the transcendental unity of apperception.",
+    ];
     dispatch({
       type: "setWords",
-      value:
-        "Because of the relation between the manifold and natural causes, let us suppose that the architectonic of human reason constitutes the whole content for, in other words, our concepts; however, philosophy (and there can be no doubt that this is true) is just as necessary as the things in themselves. The noumena prove the validity of, as I have elsewhere shown, our understanding, and our concepts, in the study of pure reason, can never, as a whole, furnish a true and demonstrated science, because, like the thing in itself, they stand in need to speculative principles. In the case of the transcendental unity of apperception, the reader should be careful to observe that pure logic, in respect of the intelligible character, excludes the possibility of our ideas, as is shown in the writings of Galileo.".split(" "),
+      value: shuffle(randomSentences).join(" ").split(" "),
     });
   }, [dispatch]);
 
