@@ -12,7 +12,7 @@
     justify-content:center;
     align-content:flex-start;
     overflow-y: auto;
-    overflow: hidden;
+    overflow: auto;
     background-color: aliceblue;
     color:lightblue;
 
