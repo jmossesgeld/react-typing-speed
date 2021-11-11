@@ -1,13 +1,13 @@
 .container {
-    margin: auto;
-    width: 70%;
-    display: flex;
-    justify-content: space-around ;
+  margin: auto;
+  width: 70%;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem;
 }
 
 .container span {
-    border: solid;
-    border-width: 0.5px;
-    padding: 0.5rem
+  border: solid;
+  border-width: 0.5px;
+  padding: 0.5rem;
 }
-
