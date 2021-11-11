@@ -44,3 +44,8 @@
 .correct {
   color: green;
 }
+
+.next {
+  color: black;
+  font-weight: 500;
+}

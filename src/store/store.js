@@ -3,7 +3,7 @@ import { createStore } from "redux";
 const initialState = {
   words: ["Some Words"],
   input: "",
-  validations: [""],
+  validations: ["next"],
   isTimerStart: false,
   startTimeStamp: 0,
   currentTimeStamp: 0,
@@ -31,6 +31,7 @@ const reducer = (state = initialState, action) => {
       const input = inputs[index];
       validations.push(input === letter ? "correct" : "wrong");
     }
+    validations.push("next")
 
     return { ...state, validations: validations };
   }
