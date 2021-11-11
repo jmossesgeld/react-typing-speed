@@ -4,7 +4,7 @@ import classes from "./Scoreboard.module.css";
 
 const Scoreboard = () => {
   const dispatch = useDispatch();
-  const duration = 10;
+  const duration = 60;
   const validations = useSelector((state) => state.validations);
   const errors = validations.filter((item) => item === "wrong").length;
   const accuracy = (1 - errors / (validations.length || 0)) * 100;
