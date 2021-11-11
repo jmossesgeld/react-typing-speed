@@ -18,15 +18,9 @@ const InputText = () => {
   };
 
   return (
-    <div>
-      <em style={{ marginTop: "2rem", display: "block" }}> Type anything to get started:</em>
-      <textarea
-        autoFocus
-        className={classes.style}
-        value={inputText}
-        onChange={inputChangeHandler}
-        ref={textArea}
-      ></textarea>
+    <div className={classes.style}>
+      <p> TYPE ANYTHING TO GET STARTED</p>
+      <textarea autoFocus value={inputText} onChange={inputChangeHandler} ref={textArea}></textarea>
       <em style={{ marginBottom: "2rem", display: "block", fontSize: "0.7rem" }}>
         Press Up and Down to cycle through the words entered
       </em>
