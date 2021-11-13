@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
       const input = inputs[index];
       validations.push(input === letter ? "correct" : "wrong");
     }
-    validations.push("next")
+    validations.push("next");
 
     return { ...state, validations: validations };
   }

@@ -8,7 +8,7 @@ const Words = () => {
   const words = useSelector((state) => state.words);
   const validations = useSelector((state) => state.validations);
   const wordsRef = useRef();
-  const showFinalResults = useSelector(state=>state.showFinalResults)
+  const showFinalResults = useSelector((state) => state.showFinalResults);
 
   function shuffle(array) {
     let currentIndex = array.length,
