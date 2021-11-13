@@ -15,9 +15,6 @@ const ReactTypingSpeed = () => {
   );
 };
 
-ReactDOM.render(
-  <ReactTypingSpeed/>,
-  document.getElementById("root")
-);
+ReactDOM.render(<ReactTypingSpeed />, document.getElementById("root"));
 
 export default ReactTypingSpeed;
