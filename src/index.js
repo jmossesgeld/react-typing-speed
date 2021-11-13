@@ -14,6 +14,8 @@ const ReactTypingSpeed = () => {
     </React.StrictMode>
   );
 };
+
+
 ReactDOM.render(<ReactTypingSpeed />, document.getElementById("root"));
 
 export default ReactTypingSpeed;
