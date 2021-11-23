@@ -63,7 +63,7 @@ const Words = () => {
 
   useEffect(() => {
     const currentHeight =
-      wordsRef.current.scrollHeight * (validations.length / words.length - 0.075);
+      wordsRef.current.scrollHeight * (validations.length / words.length - 0.070);
     wordsRef.current.scrollTop = currentHeight;
   }, [validations, words]);
 
