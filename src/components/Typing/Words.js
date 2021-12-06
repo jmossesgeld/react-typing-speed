@@ -14,13 +14,9 @@ const Words = () => {
     let currentIndex = array.length,
       randomIndex;
 
-    // While there remain elements to shuffle...
     while (currentIndex !== 0) {
-      // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
-
-      // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [array[randomIndex], array[currentIndex]];
     }
 
@@ -61,16 +57,20 @@ const Words = () => {
     });
   }, [dispatch, showFinalResults]);
 
+  const noOfWords = 20;
+  const page = Math.floor((validations.length - 1) / noOfWords);
+  const displayWords = words.slice(page * noOfWords, (page + 1) * noOfWords);
+
   useEffect(() => {
     const currentHeight =
-      wordsRef.current.scrollHeight * (validations.length / words.length - 0.050); //the lower the number the faster the scroll
+      wordsRef.current.scrollHeight * (((validations.length - 1) % 20) / noOfWords - 0.25); //the lower the number the faster the scroll
     wordsRef.current.scrollTop = currentHeight;
   }, [validations, words]);
 
   return (
     <div className={classes.style} ref={wordsRef}>
-      {words.map((item, index) => (
-        <Word validation={validations[index]} char={item} key={index} />
+      {displayWords.map((item, index) => (
+        <Word validation={validations[index + page * noOfWords]} char={item} key={index} />
       ))}
     </div>
   );
