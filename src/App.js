@@ -4,6 +4,7 @@ import Words from "./components/Typing/Words";
 import InputText from "./components/Typing/InputText";
 import FinalScore from "./components/Layout/FinalScore";
 import Scoreboard from "./components/Layout/Scoreboard";
+import { FaGithub } from "react-icons/fa";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -21,6 +22,12 @@ function App() {
           <InputText />
         </>
       )}
+      <footer style={{ position: "absolute", bottom: "30px", width: "100%", textAlign: "center" }}>
+        {"Made by:   jmossesgeld "}
+        <a href="https://github.com/jmossesgeld/react-typing-speed">
+          <FaGithub/>
+        </a>
+      </footer>
     </div>
   );
 }
