@@ -22,7 +22,7 @@ function App() {
           <InputText />
         </>
       )}
-      <footer style={{ position: "absolute", bottom: "30px", width: "100%", textAlign: "center" }}>
+      <footer style={{ margin:"5rem auto", textAlign: "center" }}>
         {"Made by:   jmossesgeld "}
         <a href="https://github.com/jmossesgeld/react-typing-speed">
           <FaGithub/>

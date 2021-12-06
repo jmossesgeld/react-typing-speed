@@ -63,7 +63,7 @@ const Words = () => {
 
   useEffect(() => {
     const currentHeight =
-      wordsRef.current.scrollHeight * (validations.length / words.length - 0.070);
+      wordsRef.current.scrollHeight * (validations.length / words.length - 0.050); //the lower the number the faster the scroll
     wordsRef.current.scrollTop = currentHeight;
   }, [validations, words]);
 
